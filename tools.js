@@ -1,7 +1,7 @@
 /**
  * @description <p>General Tools.</p>
  * @module Tools
- * @version 1.2
+ * @version 1.3
  * @namespace YAHOO
  * @requires yahoo, dom, event
 */
@@ -183,10 +183,10 @@
         */
         makeChildren: function(arr, elm) {
             elm = Dom.get(elm);
-            for (var i in arr) {
+            for (var i = 0; i < arr.length; i++) {
                 var _val = arr[i];
                 if (typeof _val == 'string') {
-                    _val = YAHOO.Tools.makeTxtObject(_val);
+                    _val = YAHOO.Tools.makeTextObject(_val);
                 }
                 elm.appendChild(_val);
             }
@@ -307,21 +307,19 @@
         */
         setStyleString: function(el, str) {
             var _tmp = str.split(';');
-            for (var x in _tmp) {
-                if (x) {
-                    var __tmp = YAHOO.Tools.trim(_tmp[x]);
-                    __tmp = _tmp[x].split(':');
-                    if (__tmp[0] && __tmp[1]) {
-                        var _attr = YAHOO.Tools.trim(__tmp[0]);
-                        var _val = YAHOO.Tools.trim(__tmp[1]);
-                        if (_attr && _val) {
-                            if (_attr.indexOf('-') != -1) {
-                                _attr = YAHOO.Tools.styleToCamel(_attr);
-                            }
-                            Dom.setStyle(el, _attr, _val);
-                        }
-                    }
-                }
+            for (var x = 0; x < _tmp.length; x++) {
+				var __tmp = YAHOO.Tools.trim(_tmp[x]);
+				__tmp = _tmp[x].split(':');
+				if (__tmp[0] && __tmp[1]) {
+					var _attr = YAHOO.Tools.trim(__tmp[0]);
+					var _val = YAHOO.Tools.trim(__tmp[1]);
+					if (_attr && _val) {
+						if (_attr.indexOf('-') != -1) {
+							_attr = YAHOO.Tools.styleToCamel(_attr);
+						}
+						Dom.setStyle(el, _attr, _val);
+					}
+				}
             }
         },
         /**
