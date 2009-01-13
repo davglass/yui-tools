@@ -366,7 +366,7 @@
              path = (argc > 3) ? argv[3] : '/';
              domain = (argc > 4) ? argv[4] : null;
              secure = (argc > 5) ? argv[5] : false;
-             document.cookie = name + "=" + escape (value) +
+             document.cookie = name + "=" + escape(value) +
                ((expires === null) ? "" : ("; expires=" + expires.toGMTString())) +
                ((path === null) ? "" : ("; path=" + path)) +
                ((domain === null) ? "" : ("; domain=" + domain)) +
