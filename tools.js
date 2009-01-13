@@ -1,6 +1,6 @@
 /**
  * @description <p>General Tools.</p>
- * @module Tools
+ * @module tools
  * @version 1.3
  * @namespace YAHOO
  * @requires yahoo, dom, event
